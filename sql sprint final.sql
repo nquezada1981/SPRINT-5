@@ -1,8 +1,8 @@
-usuario: user_sprint
-password: sprint_modulo5
-
+-- usuario: user_sprint
+-- password: sprint_modulo5
 
 -- MySQL Workbench Forward Engineering
+
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -208,9 +208,9 @@ INSERT INTO `sprint`.`clientes_has_productos` (`numero_docto`, `clientes_id`, `p
 
 
 
-SQL Querys
+-- SQL Querys
 
-Cuál es la categoría de productos que más se repite.
+-- Cuál es la categoría de productos que más se repite.
 SELECT categoria, COUNT(*) AS repeticiones
 FROM productos
 GROUP BY categoria
@@ -218,13 +218,13 @@ ORDER BY repeticiones DESC
 LIMIT 1;
 
 
-Cuáles son los productos con mayor stock
+-- Cuáles son los productos con mayor stock
 SELECT *
 FROM productos
 ORDER BY stock DESC
 LIMIT 5;
 
-Qué color de producto es más común en nuestra tienda.
+-- Qué color de producto es más común en nuestra tienda.
 SELECT color, COUNT(*) AS cantidad
 FROM productos
 GROUP BY color
@@ -232,7 +232,7 @@ ORDER BY cantidad DESC
 LIMIT 1;
 
 
-Cual o cuales son los proveedores con menor stock de productos.
+-- Cual o cuales son los proveedores con menor stock de productos.
 SELECT p.id, p.nombre_corporativo, (
     SELECT SUM(stock)
     FROM productos
@@ -247,7 +247,7 @@ ORDER BY total_stock ASC
 LIMIT 1;
 
 
-Cambien la categoría de productos más popular por ‘Electrónica y computación’.
+-- Cambien la categoría de productos más popular por ‘Electrónica y computación’.
 UPDATE productos
 SET categoria = 'Electrónica y computación'
 WHERE id = (
@@ -260,7 +260,3 @@ WHERE id = (
         LIMIT 1
     ) AS subquery
 );
-
-
-
-
